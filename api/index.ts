@@ -1,4 +1,5 @@
 import { NowRequest, NowResponse } from '@vercel/node'
+import { getScreenshot } from './_lib/chromium';
 
 module.exports = async (req: NowRequest, res: NowResponse) => {
   try {
