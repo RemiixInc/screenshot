@@ -15,7 +15,7 @@ async function getPage() {
 export async function getScreenshot(url, width, height) {
     const page = await getPage();
     await page.goto(url);
-    await page.setViewport({ width: width || 1366, height: height || 625 });
+    await page.setViewport({ width: Number(width) || 1366, height: Number(height) || 625 });
     const file = await page.screenshot();
     return file;
 }
