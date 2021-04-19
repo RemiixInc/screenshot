@@ -1,6 +1,6 @@
 import { NowRequest, NowResponse } from '@vercel/node'
 
-module.exports = (req: NowRequest, res: NowResponse) => {
+module.exports = async (req: NowRequest, res: NowResponse) => {
   try {
     const file = await getScreenshot(req.query.url, req.query.width, req.query.height);
     res.header('Content-Type', `image/png`);
