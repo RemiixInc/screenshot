@@ -3,9 +3,6 @@
   "engines": {
     "node": "12.x"
   },
-  "scripts": {
-    "build": "tsc -p api/tsconfig.json"
-  },
   "dependencies": {
     "chrome-aws-lambda": "2.1.1",
     "puppeteer-core": "2.1.1"
