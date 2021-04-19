@@ -2,10 +2,11 @@ import { NowRequest, NowResponse } from '@vercel/node'
 import { getScreenshot } from './_lib/chromium';
 
 module.exports = async (req: NowRequest, res: NowResponse) => {
+  const usage = "https://screenshot.totallyusefulapi.ml/api?url=https://google.com&width=1366&height=625"
   if (!req.query.url) return res.json({
     "success": false,
     "error": "No url query specified!",
-    "usage": "https://screenshot.totallyusefulapi.ml/api?url=https://totallyusefulapi.ml&width=930&height=625"
+    "usage": usage
   });
   try {
     const file = await getScreenshot(req.query.url, req.query.width, req.query.height);
@@ -17,7 +18,7 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
     res.json({
       "success": false,
       "error": "Invalid url query!",
-      "usage": "https://screenshot.totallyusefulapi.ml/api?url=https://totallyusefulapi.ml&width=930&height=625"
+      "usage": usage
     });
   }
 }
