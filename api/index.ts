@@ -17,7 +17,7 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
     res.setHeader('Content-Type', 'application/json');
     res.json({
       "success": false,
-      "error": "Invalid url query!",
+      "error": "Invalid queries!",
       //"dev": error,
       "usage": usage
     });
