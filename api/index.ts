@@ -1,8 +1,8 @@
-import { NowRequest, NowResponse } from '@vercel/node'
+import { Request, Response } from '@vercel/node'
 import { getScreenshot } from './_lib/puppeteer';
 
-module.exports = async (req: NowRequest, res: NowResponse) => {
-  const usage = `${req.protocol}://${req.hostname}/api?url=https://google.com&width=1366&height=625`
+module.exports = async (req: Request, res: Response) => {
+  const usage = "https://screenshot.totallyusefulapi.ml/api?url=https://google.com&width=1366&height=625"
   if (!req.query.url) return res.json({
     "success": false,
     "error": "No url query specified!",
