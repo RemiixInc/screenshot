@@ -3,7 +3,7 @@ import { getScreenshot } from './_lib/puppeteer';
 
 module.exports = async (req: Request, res: Response) => {
   const usage = "https://screenshot.totallyusefulapi.ml/api?url=https://google.com&width=1366&height=625"
-  if (!req.query.url) return res.json({
+  if (!req.query.url) return res.status(400).json({
     "success": false,
     "error": "No url query specified!",
     "usage": usage
@@ -16,7 +16,7 @@ module.exports = async (req: Request, res: Response) => {
   } catch (error) {
     console.error(error)
     res.setHeader('Content-Type', 'application/json');
-    res.json({
+    res.status(400).json({
       "success": false,
       "error": "Invalid queries!",
       //"dev": error,
