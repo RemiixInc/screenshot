@@ -2,10 +2,10 @@ import { Request, Response } from '@vercel/node'
 import { getScreenshot } from './_lib/puppeteer';
 
 module.exports = async (req: Request, res: Response) => {
-  const usage = "https://screenshot.totallyusefulapi.ml/api?url=https://google.com&width=1366&height=625"
+  const usage = "https://s.vercel.app/api?url=https://google.com&width=1280&height=664"
   if (!req.query.url) return res.status(400).json({
     "success": false,
-    "error": "No url query specified!",
+    "error": "No url query specified.",
     "usage": usage
   });
   try {
@@ -18,7 +18,7 @@ module.exports = async (req: Request, res: Response) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(400).json({
       "success": false,
-      "error": "Invalid queries!",
+      "error": "The server encountered an error. You may have inputted an invalid query.",
       //"dev": error,
       "usage": usage
     });
