@@ -2,7 +2,7 @@ import { Request, Response } from '@vercel/node'
 import { getScreenshot } from './_lib/puppeteer';
 
 module.exports = async (req: Request, res: Response) => {
-  const usage = "https://s.vercel.app/api?url=https://google.com&width=1280&height=664"
+  const usage = "https://s.vercel.app/api?url=https://google.com&width=1280&height=720"
   if (!req.query.url) return res.status(400).json({
     "success": false,
     "error": "No url query specified.",
