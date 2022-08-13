@@ -1,6 +1,6 @@
 import { launch, Page } from 'puppeteer-core';
 import chrome from 'chrome-aws-lambda';
-let page: Page || null;
+let page = Page || null;
 
 async function getPage() {
     if (page) return page;
