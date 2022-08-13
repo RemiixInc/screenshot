@@ -1,5 +1,5 @@
 # screenshot
-📸 Serverless API to take screenshots of websites with Puppeteer.
+Serverless API to take screenshots of websites with Puppeteer.
 
 **Deploy your own screenshot API for free:**
 
