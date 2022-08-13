@@ -4,11 +4,8 @@
   "description": "Serverless API to take screenshots of websites with Puppeteer.",
   "dependencies": {
     "chrome-aws-lambda": "7.0.0",
-    "puppeteer-core": "13.1.2"
-  },
-  "devDependencies": {
-    "typescript": "4.1.5",
-    "@vercel/node": "^1.8.5"
+    "puppeteer-core": "13.1.2",
+    "express": "^4.17.1"
   },
   "engines": {
     "node": "14.x"
