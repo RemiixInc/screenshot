@@ -1,17 +1,17 @@
 import { launch, Page } from 'puppeteer-core';
 import chrome from 'chrome-aws-lambda';
-let _page: Page | null;
+let page: Page || null;
 
 async function getPage() {
-    if (_page) return _page;
+    if (page) return page;
     const options = { 
         args: chrome.args,
         executablePath: await chrome.executablePath,
         headless: chrome.headless
     };
     const browser = await launch(options);
-    _page = await browser.newPage();
-    return _page;
+    page = await browser.newPage();
+    return page;
 }
 
 export async function getScreenshot(url, width, height) {
