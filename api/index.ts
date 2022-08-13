@@ -1,4 +1,4 @@
-const { getScreenshot } = require('./_lib/puppeteer');
+import { getScreenshot } from './_lib/puppeteer';
 const usage = "https://s.vercel.app/api?url=https://google.com&width=1280&height=720"
 
 module.exports = async (req, res) => {
