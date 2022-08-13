@@ -1,13 +1,9 @@
 import { Request, Response } from '@vercel/node'
 import { getScreenshot } from './_lib/puppeteer';
+const usage = "https://s.vercel.app/api?url=https://google.com&width=1280&height=720"
 
 module.exports = async (req: Request, res: Response) => {
-  const usage = "https://s.vercel.app/api?url=https://google.com&width=1280&height=720"
-  if (!req.query.url) return res.status(400).json({
-    "success": false,
-    "error": "No url query specified.",
-    "usage": usage
-  });
+  if (!req.query.url) return res.status(400).send("No url query specified.");
   try {
     const file = await getScreenshot(req.query.url, req.query.width, req.query.height);
     res.setHeader('Content-Type', `image/png`);
@@ -15,12 +11,6 @@ module.exports = async (req: Request, res: Response) => {
     res.status(200).end(file);
   } catch (error) {
     console.error(error)
-    res.setHeader('Content-Type', 'application/json');
-    res.status(400).json({
-      "success": false,
-      "error": "The server encountered an error. You may have inputted an invalid query.",
-      //"dev": error,
-      "usage": usage
-    });
+    res.status(400).send("The server encountered an error. You may have inputted an invalid query.");
   }
 }
