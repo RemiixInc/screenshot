@@ -1,7 +1,5 @@
 import { getScreenshot } from "./_lib/puppeteer";
 
-const hostname = "s.vercel.app"
-
 module.exports = async (req, res) => {
   if (!req.query.url) return res.status(400).send("No url query specified.");
   if (!checkUrl(req.query.url)) return res.status(400).send("Invalid url query specified.");
@@ -23,6 +21,5 @@ function checkUrl(string, hostname) {
   } catch (error) {
     return false;
   }
-  if (url.hostname == hostname) return false;
   return true;
 }
