@@ -21,6 +21,9 @@ function checkUrl(string, hostname) {
   } catch (error) {
     return false;
   }
+  console.log(url.hostname)
+  console.log(hostname)
+  console.log(url.hostname == hostname)
   if (url.hostname == hostname) return false;
   return true;
 }
