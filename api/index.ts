@@ -1,8 +1,10 @@
 import { getScreenshot } from "./_lib/puppeteer";
 
+const hostname = "s.vercel.app"
+
 module.exports = async (req, res) => {
   if (!req.query.url) return res.status(400).send("No url query specified.");
-  if (!checkUrl(req.query.url, req.hostname)) return res.status(400).send("Invalid url query specified.");
+  if (!checkUrl(req.query.url)) return res.status(400).send("Invalid url query specified.");
   try {
     const file = await getScreenshot(req.query.url, req.query.width, req.query.height);
     res.setHeader("Content-Type", "image/png");
@@ -21,9 +23,6 @@ function checkUrl(string, hostname) {
   } catch (error) {
     return false;
   }
-  console.log(url.hostname)
-  console.log(hostname)
-  console.log(url.hostname == hostname)
   if (url.hostname == hostname) return false;
   return true;
 }
