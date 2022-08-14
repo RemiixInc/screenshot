@@ -2,6 +2,7 @@ import { getScreenshot } from "./_lib/puppeteer";
 
 module.exports = async (req, res) => {
   if (!req.query.url) return res.status(400).send("No url query specified.");
+  if (!checkUrl(req.query.url, req.hostname)) return res.status(400).send("Invalid url query specified.");
   try {
     const file = await getScreenshot(req.query.url, req.query.width, req.query.height);
     res.setHeader("Content-Type", "image/png");
@@ -11,4 +12,15 @@ module.exports = async (req, res) => {
     console.error(error)
     res.status(500).send("The server encountered an error. You may have inputted an invalid query.");
   }
+}
+
+function checkUrl(string, hostname) {
+  var url = "";
+  try {
+    url = new URL(string);
+  } catch (error) {
+    return false;
+  }
+  if (url.hostname == hostname) return false;
+  return true;
 }
