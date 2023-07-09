@@ -1,3 +1,5 @@
+> #### The public instance of this API is currently disabled. Press deploy below to create your own private instance for free.
+
 # screenshot
 Serverless API to take screenshots of websites with Puppeteer.
 
