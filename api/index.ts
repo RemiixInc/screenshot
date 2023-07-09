@@ -1,6 +1,7 @@
 import { getScreenshot } from "./_lib/puppeteer";
 
 module.exports = async (req, res) => {
+  if (process.env.demo == "yes") return res.status(403).send("The public instance of this API is now unavailable. You can deploy your own instance for free on Vercel here: https://s.vercel.app/deploy.");
   if (!req.query.url) return res.status(400).send("No url query specified.");
   if (!checkUrl(req.query.url)) return res.status(400).send("Invalid url query specified.");
   try {
@@ -22,4 +23,3 @@ function checkUrl(string, hostname) {
     return false;
   }
   return true;
-}
