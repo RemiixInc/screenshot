@@ -10,10 +10,10 @@ module.exports = async (req, res) => {
     res.setHeader("Cache-Control", "public, immutable, no-transform, s-maxage=86400, max-age=86400");
     res.status(200).end(file);
   } catch (error) {
-    console.error(error)
+    console.error(error);
     res.status(500).send("The server encountered an error. You may have inputted an invalid query.");
   }
-}
+};
 
 function checkUrl(string, hostname) {
   var url = "";
@@ -23,3 +23,4 @@ function checkUrl(string, hostname) {
     return false;
   }
   return true;
+}
