@@ -5,4 +5,4 @@
 Serverless API to take screenshots of websites with Puppeteer.
 
 ### Example
-https://s.vercel.app/api?url=https://google.com&width=1280&height=720
+~~https://s.vercel.app/api?url=https://google.com&width=1280&height=720~~
